@@ -56,6 +56,19 @@ class RingQueueLinked(object):
         self.LinkedList.insert(item)
         self.cur_size += 1
 
+    def get(self, index):
+        if self.is_empty():
+            raise IndexError("RingQueue is empty, unable to dequeue")
+        bufferNode = self.LinkedList.first
+        nodeIndex = 0
+        while nodeIndex <= index:
+            if nodeIndex == index:
+                return bufferNode.value
+            nodeIndex += 1
+            bufferNode = bufferNode.next
+
+
+
     def front(self):
         # Return first Node of the RingQueue
         return self.LinkedList.first()

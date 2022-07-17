@@ -21,7 +21,7 @@ class RingQueueList(object):
         return self.tail == (self.head-1) % self.max_size
 
     def dequeue(self):
-        # Return the item at the front of the RingQueue and remove it
+        # Return an item at the front of the RingQueue and remove it
         if self.is_empty():
             raise IndexError("RingQueue is empty, unable to dequeue")
         item = self.buffer[self.head]
@@ -35,6 +35,12 @@ class RingQueueList(object):
             self.dequeue()
         self.buffer[self.tail] = item
         self.tail = (self.tail + 1) % self.max_size
+
+    def get(self, index):
+        # Return an item by index
+        if self.is_empty():
+            raise IndexError("RingQueue is empty, unable to get")
+        return self.buffer[index]
 
     def front(self):
         # Return the item at the front of the RingQueue
