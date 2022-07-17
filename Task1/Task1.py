@@ -1,2 +1,2 @@
-def isEven(value): return ((value >> 1) << 1) == value
+def isEven(value): return value & 1 == 0
 
