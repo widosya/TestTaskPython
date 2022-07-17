@@ -57,7 +57,7 @@ class RingQueueLinked(object):
         self.cur_size += 1
 
     def get(self, index):
-        # Return an item by index
+        # Return an item by index 
         if self.is_empty():
             raise IndexError("RingQueue is empty, unable to dequeue")
         bufferNode = self.LinkedList.first
